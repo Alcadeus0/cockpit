@@ -17,6 +17,8 @@ On Debian/Ubuntu:
 
     $ sudo apt install nodejs
 
+Make sure the Node.js version installed is atleast 18.15.0
+
 On Fedora:
 
     $ sudo dnf install nodejs
@@ -67,6 +69,12 @@ After a fresh clone of the Cockpit sources, you need to prepare them by running
 As shown, `autogen.sh` runs 'configure' with the given options, and it also
 prepares the build tree by downloading various nodejs dependencies.
 
+On Debian:
+
+You need to run `autogen.sh` like this as Debian does not have PCP requirements:
+
+    $ ./autogen.sh --prefix=/usr --enable-debug --disable-pcp
+ 
 When working with a Git clone, it is therefore best to simply always
 run `./autogen.sh` instead of `./configure`.
 
